@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import com.google.gson.GsonBuilder;
+
 public class JoueurTEST {
 	private Joueur test;
 	
@@ -58,5 +60,12 @@ public class JoueurTEST {
 		 test=new Joueur();
 		 test.Perte(250);
 		 assertTrue(test.getMoney()==0);
+	 }
+	 
+	 @Test
+	 public void testjson(){
+		 test=new Joueur();
+		 String text=new GsonBuilder().create().toJson(test);
+		 System.out.println(text);
 	 }
 }
