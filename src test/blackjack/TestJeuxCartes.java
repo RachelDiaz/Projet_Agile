@@ -1,4 +1,4 @@
-package testunit;
+package blackjack;
 
 import static org.junit.Assert.*;
 
