@@ -13,15 +13,7 @@ public class Machine {
 	private int jackpot = 1000;
 	
 	public Machine(){
-		this.mise=0;
-		this.setCharacter1(liste[0]);
-		this.setCharacter2(liste[0]);
-		this.setCharacter3(liste[0]);
-		this.gain=0;
-	}
-	
-	public Machine(int mise){
-		this.mise=mise;
+		this.mise=1;
 		this.setCharacter1(liste[0]);
 		this.setCharacter2(liste[0]);
 		this.setCharacter3(liste[0]);
@@ -29,9 +21,13 @@ public class Machine {
 	}
 	
 	public void Miser(int mise){
-		if (mise < 0) this.mise = 0;
+		if (mise < 0) this.mise = 1;
 		else if (mise > 10) this.mise=10;
 		else this.mise=mise;
+	}
+	
+	public int getMise(){
+		return this.mise;
 	}
 	
 	public int getGain(){
@@ -67,6 +63,14 @@ public class Machine {
 		else return '0';
 	}
 	
+	public boolean chercherListe(Character c){
+		boolean trouver=false;
+		for(Character d:this.liste){
+			if (c.equals(d)) trouver=true;
+		}
+		return trouver;
+	}
+	
 	public int Alea(){
 		Random alea = new Random();
 		int nombre = alea.nextInt(100);
@@ -87,8 +91,16 @@ public class Machine {
 		}
 	}
 	
-	public void gagner(){
+	public boolean combinaisonGagnante(){
 		if (this.getCharacter1().equals(this.getCharacter2()) && this.getCharacter1().equals(this.getCharacter3())) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	public void gagner(){
+		if (this.combinaisonGagnante()) {
 			if (this.getCharacter1().equals(this.liste(4))){
 				this.gain+=mise*1;
 				System.out.println("Vous avez regagné votre mise.");
@@ -147,21 +159,57 @@ public class Machine {
 	
 	public static void main(String[]args){
 		Machine machine=new Machine();
-		machine.tirage();
+		boolean continuer=true;
+		boolean b=false;
 		
-		machine.Affichage(machine);
-		System.out.println("");
-		System.out.println("Bienvenue sur la machine à sous !");
-		System.out.println("Quelle est votre mise ?");
-		Scanner scan = new Scanner(System.in);
-		int mise = scan.nextInt();
-		machine.Miser(mise);
+		while(continuer){
+			machine.tirage();		
+			machine.Affichage(machine);
+			System.out.println("");
+			System.out.println("Bienvenue sur la machine à sous !");
+			System.out.println("Veuillez miser entre 1 et 10 euros");
+			System.out.println("Quelle est votre mise ?");
+			Scanner scan = new Scanner(System.in);
+			int mise = scan.nextInt();
+			while(!b) {
+				if(mise <11 && mise > 0){
+					b = true;
+					break;
+				} else {
+					System.out.println("Veuillez choisir une mise entre 1 et 10 euros.");
+					mise = scan.nextInt();
+				}
+			}
+			machine.Miser(mise);			
+			machine.clearScreen();
+			machine.tirage();
+			machine.Affichage(machine);
+			System.out.println("");
+			machine.gagner();
+			System.out.println("Votre gain est de "+machine.gain+".");
+			
+			System.out.println("Que choisissez-vous : 1: Encaisser vos gains  2: continuer");
+			int choix = scan.nextInt();
+			b=false;
+			while(!b) {
+				if(choix ==1){
+					System.out.println("Vous avez choisis d'encaisser vos gains. A bientot.");
+					b = true;
+					continuer=false;
+					break;
+				} else if(choix ==2){
+					System.out.println("Vous avez choisis de continuer.");
+					b = true;
+					break;
+				} else {
+					System.out.println("Veuillez choisir dans les choix disponibles.");
+					choix = scan.nextInt();
+				}
+			}
+			
+			
+		}
 		
-		
-		machine.Affichage(machine);
-		machine.gagner();
-		System.out.println("");
-		System.out.println("Votre gain et de "+machine.gain+".");
 		
 		
 	

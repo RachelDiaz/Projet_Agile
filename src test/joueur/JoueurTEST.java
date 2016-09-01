@@ -2,6 +2,9 @@ package joueur;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 
 import com.google.gson.GsonBuilder;
@@ -15,12 +18,12 @@ public class JoueurTEST {
 		 assertEquals(test.getName(),"Sabrina");
 	 }
 	 
-	 @Test
+	/* @Test
 	 public void testIniAvcNom(){
 		 String nom="Morsay";
 		 test= new Joueur(nom);
 		 assertTrue(test.getName()==nom);
-	 }
+	 }*/
 	 
 	 @Test
 	 public void testNbJeton(){
@@ -64,8 +67,20 @@ public class JoueurTEST {
 	 
 	 @Test
 	 public void testjson(){
+		 
+		 List<Joueur> joueurs = new ArrayList<>();
 		 test=new Joueur();
-		 String text=new GsonBuilder().create().toJson(test);
+		 joueurs.add(test);
+		 Joueur test2=new Joueur();
+		 joueurs.add(test2);
+		 String text=new GsonBuilder().create().toJson(joueurs);
 		 System.out.println(text);
+	 }
+	 
+	 @Test
+	 public void testjson2(){
+		
+		 Joueur joueur =new GsonBuilder().create().fromJson("{\"name\":\"Sabrina\",\"money\":200,\"code\":\"12345\"}", Joueur.class);
+		 System.out.println(joueur.getName());
 	 }
 }
