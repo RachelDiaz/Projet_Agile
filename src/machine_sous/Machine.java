@@ -69,10 +69,10 @@ public class Machine {
 	public int Alea(){
 		Random alea = new Random();
 		int nombre = alea.nextInt(100);
-		if (nombre < 45)  return 4;
-		else if (nombre < 70)  return 3;
-		else if (nombre < 85)  return 2;
-		else if (nombre < 95)  return 1;
+		if (nombre < 60)  return 4;
+		else if (nombre < 80)  return 3;
+		else if (nombre < 95)  return 2;
+		else if (nombre < 99)  return 1;
 		else return 0;
 	}
 	
@@ -82,13 +82,23 @@ public class Machine {
 			indice=this.Alea();
 			if (i==0) this.Character1=this.liste[indice];
 			else if(i==1) this.Character2=this.liste[indice];
-			else this.Character1=this.liste[indice];
+			else this.Character3=this.liste[indice];
 		}
 	}
 	
 	public boolean gagner(){
-		if (this.getCharacter1().equals(this.getCharacter2()) && this.getCharacter1().equals(this.getCharacter3())) return true;
-		else return false;
+		if (this.getCharacter1().equals(this.getCharacter2()) && this.getCharacter1().equals(this.getCharacter3())) {
+			if (this.getCharacter1().equals(this.liste(4))) this.gain=mise*1;
+			else if (this.getCharacter1().equals(this.liste(3))) this.gain=mise*2;
+			else if (this.getCharacter1().equals(this.liste(2))) this.gain=mise*5;
+			else if (this.getCharacter1().equals(this.liste(1))) this.gain=mise*10;
+			else this.gain=mise+this.jackpot;
+			return true;
+		}
+		else {
+			this.jackpot+=this.mise;
+			return false;
+		}
 	}
 	
 	
