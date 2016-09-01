@@ -33,7 +33,9 @@ public class JeuxCartes {
 		Collections.shuffle(myJeux);		
 	}
 	
-	
+	public void add (Carte c){
+		myJeux.add(c);
+	}
 
 }
 
