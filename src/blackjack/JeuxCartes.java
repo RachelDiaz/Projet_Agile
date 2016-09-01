@@ -33,9 +33,16 @@ public class JeuxCartes {
 		Collections.shuffle(myJeux);		
 	}
 	
+	public Carte getCard (int index) {
+		if (index < myJeux.size() && index >=0) return myJeux.get(index);
+		return null;
+	}
+	
 	public void add (Carte c){
 		myJeux.add(c);
 	}
+	
+	
 
 }
 
