@@ -106,7 +106,24 @@ public class Machine {
 	public static void main(String[]args){
 		Machine machine=new Machine();
 		machine.tirage();
-		System.out.print(machine.getCharacter1()+" | "+machine.getCharacter2()+" | "+machine.getCharacter3());
+	
+		System.out.println("");
+		System.out.println("      .-------.");
+		System.out.println("   oO{-JACKPOT-}Oo");
+		System.out.println("   .=============. __");
+		System.out.println("   | [0] [0] [0] |(  )");
+		System.out.println("   | ["+machine.getCharacter1()+"] ["+machine.getCharacter2()+"] ["+machine.getCharacter3()+"] | ||");
+		System.out.println("   | [0] [0] [0] | ||");
+		System.out.println("   |             |_||");
+		System.out.println("   | xxx ::::::: |--'");
+		System.out.println("   | ooo ::::::: |");
+		System.out.println("   | $$$ ::::::: |");
+		System.out.println("   |             |");
+		System.out.println("   |      __ === |");
+		System.out.println("   |_____/__\\____|");
+		System.out.println("  /###############\\");
+		System.out.println(" /#################\\");
+		System.out.println("|###################|");
 		
 	}
 	
