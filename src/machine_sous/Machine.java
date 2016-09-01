@@ -13,15 +13,7 @@ public class Machine {
 	private int jackpot = 1000;
 	
 	public Machine(){
-		this.mise=0;
-		this.setCharacter1(liste[0]);
-		this.setCharacter2(liste[0]);
-		this.setCharacter3(liste[0]);
-		this.gain=0;
-	}
-	
-	public Machine(int mise){
-		this.mise=mise;
+		this.mise=1;
 		this.setCharacter1(liste[0]);
 		this.setCharacter2(liste[0]);
 		this.setCharacter3(liste[0]);
@@ -29,9 +21,13 @@ public class Machine {
 	}
 	
 	public void Miser(int mise){
-		if (mise < 0) this.mise = 0;
+		if (mise < 0) this.mise = 1;
 		else if (mise > 10) this.mise=10;
 		else this.mise=mise;
+	}
+	
+	public int getMise(){
+		return this.mise;
 	}
 	
 	public int getGain(){
@@ -67,6 +63,14 @@ public class Machine {
 		else return '0';
 	}
 	
+	public boolean chercherListe(Character c){
+		boolean trouver=false;
+		for(Character d:this.liste){
+			if (c.equals(d)) trouver=true;
+		}
+		return trouver;
+	}
+	
 	public int Alea(){
 		Random alea = new Random();
 		int nombre = alea.nextInt(100);
@@ -87,8 +91,16 @@ public class Machine {
 		}
 	}
 	
-	public void gagner(){
+	public boolean combinaisonGagnante(){
 		if (this.getCharacter1().equals(this.getCharacter2()) && this.getCharacter1().equals(this.getCharacter3())) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	public void gagner(){
+		if (this.combinaisonGagnante()) {
 			if (this.getCharacter1().equals(this.liste(4))){
 				this.gain+=mise*1;
 				System.out.println("Vous avez regagné votre mise.");
