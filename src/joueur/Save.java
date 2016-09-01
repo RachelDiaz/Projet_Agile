@@ -29,7 +29,6 @@ public class Save {
 		buffr=new BufferedReader(reader);
 		String line=buffr.readLine();
 		System.out.println(line);
-		
 		Joueur[] joueurs = new GsonBuilder().create().fromJson(line, Joueur[].class);
 		List<Joueur> list = new ArrayList<Joueur>(Arrays.asList(joueurs));
 		for(Joueur j : list){
@@ -42,28 +41,6 @@ public class Save {
 			list.add(fantome);
 		}
 		sauve(list);
-		
-//		String[] diffPlayer=(line.split("\\},\\{"));
-//		while(ok!=true && i<diffPlayer.length){
-//			if(diffPlayer[i].contains(name) && diffPlayer[i].contains(code)){
-//				player=new GsonBuilder().create().fromJson(diffPlayer[i], Joueur.class);
-//				ok=true;
-//				indicePlayer=i;
-//			}
-//			System.out.println(i);
-//			i++;
-//		}
-//		
-//		if(ok==false){
-//			indicePlayer=diffPlayer.length;
-//			player=new Joueur(name,code);
-//			
-//			buffw.write((line.substring(0, line.length()-1))+','+new Gson().toJson(player)+']');
-//			
-//		}
-//		buffw.close();
-//		buffr.close();
-//		writer.close();
 		reader.close();
 	}
 	
@@ -74,7 +51,6 @@ public class Save {
 		}
 		;
 		rep=rep.substring(0, (rep.length()-1))+"]";
-		System.out.println(rep);
 		FileWriter writer=new FileWriter(fichier);	
 		PrintWriter buffw=new PrintWriter(writer);
 		buffw.write(rep);
@@ -94,6 +70,8 @@ public class Save {
 		});
 	}
 	
-	
+	public Joueur getJoueur(){
+		return player;
+	}
 	
 }

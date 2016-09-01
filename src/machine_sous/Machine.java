@@ -1,9 +1,12 @@
 package machine_sous;
 
-import java.util.Scanner;
 import java.util.Random;
+import java.util.Scanner;
+
+import joueur.Joueur;
 
 public class Machine {
+	private Joueur joueur;
 	private int mise;
 	private Character Character1;
 	private Character Character2;
@@ -18,12 +21,23 @@ public class Machine {
 		this.setCharacter2(liste[0]);
 		this.setCharacter3(liste[0]);
 		this.gain=0;
+		this.joueur=new Joueur();
+	}
+	
+	public Machine(Joueur joueur){
+		this.mise=1;
+		this.setCharacter1(liste[0]);
+		this.setCharacter2(liste[0]);
+		this.setCharacter3(liste[0]);
+		this.gain=0;
+		this.joueur=joueur;
 	}
 	
 	public void Miser(int mise){
-		if (mise < 0) this.mise = 1;
-		else if (mise > 10) this.mise=10;
-		else this.mise=mise;
+			if (mise < 0) this.mise = 1;
+			else if (mise > 10) this.mise=10;
+			else this.mise=mise;
+		
 	}
 	
 	public int getMise(){
@@ -172,11 +186,15 @@ public class Machine {
 			Scanner scan = new Scanner(System.in);
 			int mise = scan.nextInt();
 			while(!b) {
-				if(mise <11 && mise > 0){
+				if(mise <11 && mise > 0 && mise <= machine.joueur.getMoney()){
 					b = true;
 					break;
 				} else {
-					System.out.println("Veuillez choisir une mise entre 1 et 10 euros.");
+					if (mise > machine.joueur.getMoney()) {
+						System.out.println("Vous n'avez pas assez d'argent.");
+					} else {
+						System.out.println("Veuillez choisir une mise entre 1 et 10 euros.");
+					}
 					mise = scan.nextInt();
 				}
 			}
