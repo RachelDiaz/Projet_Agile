@@ -16,5 +16,9 @@ public class sabot {
 		}
 		
 	}
+	
+	public Carte getCarte(int indice) {
+		return Deck.get(indice);
+	}
 
 }
