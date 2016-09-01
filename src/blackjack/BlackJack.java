@@ -42,7 +42,7 @@ public class BlackJack {
 			dt.ajout_joueur(nb_joueur);
 			nb_joueur+=1;
 		} else {
-			// Afficher carte banque
+			
 		}
 	}
 	

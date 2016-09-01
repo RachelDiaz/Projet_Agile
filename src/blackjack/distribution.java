@@ -30,11 +30,20 @@ public class distribution {
 	
 	public void ajout_banque(int i){
 		tapis_banque.set(i, jeu.donner());
-		tapis_banque.get(i).afficheCarteBanque();
+		tapis_banque.get(i).afficheCarte();
 	}
 	
 	public void ajout_joueur(int i){
 		tapis_joueur.set(i, jeu.donner());
+		afficher(tapis_joueur,true);
 		tapis_joueur.get(i).afficheCarte();
+	}
+	
+	public void afficher(ArrayList <Carte> list,boolean visible) {
+		if(visible){
+			for(int i=0; i<list.size();i++){
+				list.get(i).afficheCarte();
+			}
+		}
 	}
 }
