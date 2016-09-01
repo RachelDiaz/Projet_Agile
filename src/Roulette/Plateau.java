@@ -6,10 +6,12 @@ public class Plateau {
 
 	public Plateau() {
 		Affichage();
+		new ChoixMise();
 	}
 
 	public void Affichage() {
 		int x = 1;
+		System.out.println("                    ROULETTE                     ");
 		System.out.println("-------------------------------------------------");
 		System.out.println("      |                0                |");
 		for (int i = 0; i < LONG; i++) {
@@ -54,7 +56,4 @@ public class Plateau {
 		System.out.println("Noir: 2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35");
 	}
 
-	public static void main(String[] args) {
-		new Plateau();
-	}
 }
