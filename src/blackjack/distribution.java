@@ -6,12 +6,20 @@ public class distribution {
 	
 	ArrayList <Carte> tapis_joueur= new ArrayList <> () ;
 	ArrayList <Carte> tapis_banque= new ArrayList <> () ;
+	sabot jeu = new sabot();
 	
 	public distribution()  {
-		sabot jeu = new sabot();
 		tapis_joueur.set(0, jeu.donner());
+		tapis_banque.set(0, jeu.donner());
+		tapis_joueur.set(1, jeu.donner());
 		tapis_banque.set(1, jeu.donner());
-		tapis_joueur.set(2, jeu.donner());
-		tapis_banque.set(3, jeu.donner());
+	}
+	
+	public void ajout_banque(int i){
+		tapis_banque.set(i, jeu.donner());
+	}
+	
+	public void ajout_joueur(int i){
+		tapis_joueur.set(i, jeu.donner());
 	}
 }

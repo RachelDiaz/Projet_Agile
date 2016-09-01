@@ -28,14 +28,15 @@ public class menu {
 	 */
 	public menu() {
 		Boolean b = false;
-		System.out.println("BIENVENUE AU CASINO ! "
-				+ "\n"
+		char c = (char)176;
+		System.out.println("BIENVENUE AU CASINO ! " + "\n"
+				+ c + c + c + c + c + c +"\n" 
 				+ "Veuillez choisir votre jeu ..." + "\n"
-				+ "\n"
+				+ c + c + c + c + c + c +"\n"  
 				+ "1 BLACKJACK" + "\n"
 				+ "2 ROULETTE" + "\n"
 				+ "3 MACHINE A SOUS" + "\n"
-				+ "\n"
+				+ c + c + c + c + c + c +"\n"
 				+ "Donnez le numéro du jeu concernée :"
 				);
 		//try {
