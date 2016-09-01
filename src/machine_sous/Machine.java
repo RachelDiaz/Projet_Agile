@@ -65,7 +65,7 @@ public class Machine {
 	}
 	
 	public void tirage(){
-		
+
 	}
 	
 }
