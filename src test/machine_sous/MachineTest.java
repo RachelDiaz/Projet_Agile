@@ -13,7 +13,5 @@ public class MachineTest {
 		Assert.assertEquals(machine.getCharacter2(), machine.liste(0));
 		Assert.assertEquals(machine.getCharacter3(), machine.liste(0));
 	}
-	
-	
 
 }
