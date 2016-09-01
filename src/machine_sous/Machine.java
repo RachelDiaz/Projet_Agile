@@ -102,12 +102,8 @@ public class Machine {
 		}
 	}
 	
-	
-	
-	public static void main(String[]args){
-		Machine machine=new Machine();
-		machine.tirage();
-	
+	public void Affichage(Machine machine) {
+		
 		System.out.println("");
 		System.out.println("        .-------.");
 		System.out.println("     oO{-JACKPOT-}Oo");
@@ -129,7 +125,22 @@ public class Machine {
 		System.out.println("   /#################\\");
 		System.out.println("  /###################\\");
 		System.out.println(" |#####################|");
+	}
+	
+	
+	public static void main(String[]args){
+		Machine machine=new Machine();
+		machine.tirage();
+		System.out.println("Bienvenue sur la machine à sous !");
+		System.out.println("Quelle est votre mise ?");
+		Scanner scan = new Scanner(System.in);
+		int mise = scan.nextInt();
+		machine.Miser(mise);
+		machine.Affichage(machine);
+		if (machine.gagner()) System.out.println(machine.gain);
 		
+	
+
 	}
 	
 	
