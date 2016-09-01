@@ -6,9 +6,13 @@ import java.util.Collections;
 import java.util.Random;
 
 public class JeuxCartes {
-	ArrayList <Carte> myJeux = new ArrayList <> ();
+	ArrayList <Carte> myJeux;
 	
 	public JeuxCartes() {
+		myJeux = new ArrayList<>();
+	}
+	
+	public void JeuxCartesClassique() {
 		for (int i = 1; i < Carte.VALEURCARTE.length; i++) {
 			for (int j = 1; j < Carte.COULEURCARTE.length; j++) {
 				myJeux.add(new Carte (j, i));

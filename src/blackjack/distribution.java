@@ -9,9 +9,9 @@ public class distribution {
 	
 	public distribution()  {
 		sabot jeu = new sabot();
-		tapis_joueur.set(0, jeu.getCarte(0));
-		tapis_banque.set(1, jeu.getCarte(1));
-		tapis_joueur.set(2, jeu.getCarte(2));
-		tapis_banque.set(3, jeu.getCarte(3));
+		tapis_joueur.set(0, jeu.donner());
+		tapis_banque.set(1, jeu.donner());
+		tapis_joueur.set(2, jeu.donner());
+		tapis_banque.set(3, jeu.donner());
 	}
 }
