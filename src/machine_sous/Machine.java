@@ -140,7 +140,7 @@ public class Machine {
 		if (machine.gagner()) System.out.println(machine.gain);
 		
 	
-		
+	
 
 	}
 	
