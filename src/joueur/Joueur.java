@@ -11,6 +11,8 @@ public class Joueur {
 	public Joueur(String name){
 		this.name=name;
 	}
+	
+	
 
 	public int getMoney() {
 		return money;
