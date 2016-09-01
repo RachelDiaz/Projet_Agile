@@ -12,7 +12,7 @@ public class sabot extends JeuxCartes {
 			j1.JeuxCartesClassique();
 			j1.melanger();
 			for(int i=0; i<j1.length();i++){
-				j1.donner();
+				 j1.donner();
 			}
 		}
 		

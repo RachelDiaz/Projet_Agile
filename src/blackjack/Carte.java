@@ -25,6 +25,9 @@ public class Carte {
 		return "** "+ COULEURCARTE[c] +" ** "+ VALEURCARTE[v] + " **";
 	}
 	
+	public String afficheCarteBanque() {
+		return "** -------- ** ----- **";
+	}
 	public boolean equals (Object autre) {
 		if (autre instanceof Carte) return equals(autre);
 		return false;
