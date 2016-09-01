@@ -21,8 +21,8 @@ public class Carte {
 			   "*********";
 	}
 	
-	public String afficheCarte(int c, int v) {
-		return "** "+ COULEURCARTE[c] +" ** "+ VALEURCARTE[v] + " **";
+	public String afficheCarte() {
+		return "** "+ COULEURCARTE[this.couleur] +" ** "+ VALEURCARTE[this.valeur] + " **";
 	}
 	
 	public String afficheCarteBanque() {
