@@ -87,18 +87,28 @@ public class Machine {
 		}
 	}
 	
-	public boolean gagner(){
+	public void gagner(){
 		if (this.getCharacter1().equals(this.getCharacter2()) && this.getCharacter1().equals(this.getCharacter3())) {
-			if (this.getCharacter1().equals(this.liste(4))) this.gain=mise*1;
-			else if (this.getCharacter1().equals(this.liste(3))) this.gain=mise*2;
-			else if (this.getCharacter1().equals(this.liste(2))) this.gain=mise*5;
-			else if (this.getCharacter1().equals(this.liste(1))) this.gain=mise*10;
-			else this.gain=mise+this.jackpot; this.jackpot=1000;
-			return true;
-		}
-		else {
+			if (this.getCharacter1().equals(this.liste(4))){
+				this.gain+=mise*1;
+				System.out.println("Vous avez regagné votre mise.");
+			}else if (this.getCharacter1().equals(this.liste(3))){
+				this.gain+=mise*2;
+				System.out.println("Vous avez doublé votre mise.");
+			}else if (this.getCharacter1().equals(this.liste(2))){ 
+				this.gain+=mise*5;
+				System.out.println("Vous avez multiplié votre mise par 5.");
+			}else if (this.getCharacter1().equals(this.liste(1))){
+				this.gain+=mise*10;
+				System.out.println("Vous avez multiplié votre mise par 10.");
+			}else{
+				this.gain+=mise+this.jackpot; 
+				this.jackpot=1000;
+				System.out.println("Vous avez gagné le Jackpot de "+this.jackpot+".");
+			}
+		}else {
 			this.jackpot+=this.mise;
-			return false;
+			System.out.println("Vous avez perdu votre mise. Celle-ci a été ajouté au Jackpot qui est de "+this.jackpot+".");
 		}
 	}
 	
@@ -127,19 +137,33 @@ public class Machine {
 		System.out.println(" |#####################|");
 	}
 	
+	public void clearScreen(){
+		for(int clear = 0; clear < 20; clear++)
+		  {
+		     System.out.println("");
+		  }
+	}
+	
 	
 	public static void main(String[]args){
 		Machine machine=new Machine();
 		machine.tirage();
+		
+		machine.Affichage(machine);
+		System.out.println("");
 		System.out.println("Bienvenue sur la machine à sous !");
 		System.out.println("Quelle est votre mise ?");
 		Scanner scan = new Scanner(System.in);
 		int mise = scan.nextInt();
 		machine.Miser(mise);
-		machine.Affichage(machine);
-		if (machine.gagner()) System.out.println(machine.gain);
 		
-	
+		
+		machine.Affichage(machine);
+		machine.gagner();
+		System.out.println("");
+		System.out.println("Votre gain et de "+machine.gain+".");
+		
+		
 	
 
 	}
