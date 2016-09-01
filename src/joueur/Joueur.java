@@ -1,5 +1,6 @@
 package joueur;
 
+
 public class Joueur {
 	private String name;
 	private int money=200;
@@ -10,6 +11,7 @@ public class Joueur {
 	
 	public Joueur(String name){
 		this.name=name;
+		
 	}
 	
 	

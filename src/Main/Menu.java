@@ -1,12 +1,14 @@
+package Main;
 import java.util.Scanner;
+
+import Roulette.Plateau;
 
 /**
  * Classe de gestion du jeu
  * @author Team Casino
  *
  */
-public class menu {
-
+public class Menu {
 	/**
 	 * Selection du jeu
 	 * @return nom du jeu
@@ -16,6 +18,7 @@ public class menu {
 			return "BLACKJACK";
 		} 
 		if (nb == 2) {
+			new Plateau();
 			return "ROULETTE";
 		} 
 		if (nb == 3) {
@@ -26,7 +29,8 @@ public class menu {
 	/**
 	 * Création d'un menu
 	 */
-	public menu() {
+
+	public Menu() {
 		Boolean b = false;
 		System.out.println("BIENVENUE AU CASINO ! "
 				+ "\n"
@@ -85,13 +89,8 @@ public class menu {
 					System.out.println("ERREUR " 
 						+ "\n" + "Le jeu saisis n'est pas bon, merci de ressayer ..." 
 						+ "\n" + "Donnez le numero du jeu concernée :");
-
 				}
 			}*/
 
-	public static void main(String[] args) {
-		new menu();
-
-	}
 
 }
