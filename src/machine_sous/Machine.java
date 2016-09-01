@@ -1,27 +1,29 @@
 package machine_sous;
 
+import java.util.Random;
+
 public class Machine {
 	private int mise;
-	private char char1;
-	private char char2;
-	private char char3;
-	private char[] liste= new char[] {'7','*','$','?','§'};
+	private Character Character1;
+	private Character Character2;
+	private Character Character3;
+	private Character[] liste= new Character[] {'7','*','$','?','§'};
 	private int gain;
 	private int jackpot = 1000;
 	
 	public Machine(){
 		this.mise=0;
-		this.setChar1(liste[0]);
-		this.setChar2(liste[0]);
-		this.setChar3(liste[0]);
+		this.setCharacter1(liste[0]);
+		this.setCharacter2(liste[0]);
+		this.setCharacter3(liste[0]);
 		this.gain=0;
 	}
 	
 	public Machine(int mise){
 		this.mise=mise;
-		this.setChar1(liste[0]);
-		this.setChar2(liste[0]);
-		this.setChar3(liste[0]);
+		this.setCharacter1(liste[0]);
+		this.setCharacter2(liste[0]);
+		this.setCharacter3(liste[0]);
 		this.gain=0;
 	}
 	
@@ -35,37 +37,69 @@ public class Machine {
 		return this.gain;
 	}
 
-	public char getChar2() {
-		return char2;
+	public Character getCharacter2() {
+		return Character2;
 	}
 
-	public void setChar2(char char2) {
-		this.char2 = char2;
+	public void setCharacter2(Character Character2) {
+		this.Character2 = Character2;
 	}
 
-	public char getChar1() {
-		return char1;
+	public Character getCharacter1() {
+		return Character1;
 	}
 
-	public void setChar1(char char1) {
-		this.char1 = char1;
+	public void setCharacter1(Character Character1) {
+		this.Character1 = Character1;
 	}
 
-	public char getChar3() {
-		return char3;
+	public Character getCharacter3() {
+		return Character3;
 	}
 
-	public void setChar3(char char3) {
-		this.char3 = char3;
+	public void setCharacter3(Character Character3) {
+		this.Character3 = Character3;
 	}
 	
-	public char liste(int indice){
+	public Character liste(int indice){
 		if (indice < 5 && indice >= 0) return this.liste[indice];
 		else return '0';
 	}
 	
-	public void tirage(){
-
+	public int Alea(){
+		Random alea = new Random();
+		int nombre = alea.nextInt(100);
+		if (nombre < 45)  return 4;
+		else if (nombre < 70)  return 3;
+		else if (nombre < 85)  return 2;
+		else if (nombre < 95)  return 1;
+		else return 0;
 	}
+	
+	public void tirage(){
+		int indice;
+		for(int i=0; i<3;i++){
+			indice=this.Alea();
+			if (i==0) this.Character1=this.liste[indice];
+			else if(i==1) this.Character2=this.liste[indice];
+			else this.Character1=this.liste[indice];
+		}
+	}
+	
+	public boolean gagner(){
+		if (this.getCharacter1().equals(this.getCharacter2()) && this.getCharacter1().equals(this.getCharacter3())) return true;
+		else return false;
+	}
+	
+	
+	
+	public static void main(String[]args){
+		Machine machine=new Machine();
+		machine.tirage();
+		System.out.print(machine.getCharacter1()+" | "+machine.getCharacter2()+" | "+machine.getCharacter3());
+		
+	}
+	
+	
 	
 }
