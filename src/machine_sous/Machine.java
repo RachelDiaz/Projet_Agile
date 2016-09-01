@@ -1,5 +1,6 @@
 package machine_sous;
 
+import java.util.Scanner;
 import java.util.Random;
 
 public class Machine {
@@ -92,7 +93,7 @@ public class Machine {
 			else if (this.getCharacter1().equals(this.liste(3))) this.gain=mise*2;
 			else if (this.getCharacter1().equals(this.liste(2))) this.gain=mise*5;
 			else if (this.getCharacter1().equals(this.liste(1))) this.gain=mise*10;
-			else this.gain=mise+this.jackpot;
+			else this.gain=mise+this.jackpot; this.jackpot=1000;
 			return true;
 		}
 		else {
@@ -108,22 +109,26 @@ public class Machine {
 		machine.tirage();
 	
 		System.out.println("");
-		System.out.println("      .-------.");
-		System.out.println("   oO{-JACKPOT-}Oo");
-		System.out.println("   .=============. __");
-		System.out.println("   | [0] [0] [0] |(  )");
-		System.out.println("   | ["+machine.getCharacter1()+"] ["+machine.getCharacter2()+"] ["+machine.getCharacter3()+"] | ||");
-		System.out.println("   | [0] [0] [0] | ||");
-		System.out.println("   |             |_||");
-		System.out.println("   | xxx ::::::: |--'");
-		System.out.println("   | ooo ::::::: |");
-		System.out.println("   | $$$ ::::::: |");
-		System.out.println("   |             |");
-		System.out.println("   |      __ === |");
-		System.out.println("   |_____/__\\____|");
-		System.out.println("  /###############\\");
-		System.out.println(" /#################\\");
-		System.out.println("|###################|");
+		System.out.println("        .-------.");
+		System.out.println("     oO{-JACKPOT-}Oo");
+		System.out.println("   .=================. __");
+		System.out.println("   |  ["+machine.liste(new Random().nextInt(5))+"]  ["+machine.liste(new Random().nextInt(5))+"]  ["+machine.liste(new Random().nextInt(5))+"]  |(  )");
+		System.out.println("   |  | |  | |  | |  | ||");
+		System.out.println("   |  ["+machine.getCharacter1()+"]  ["+machine.getCharacter2()+"]  ["+machine.getCharacter3()+"]  | ||");
+		System.out.println("   |  | |  | |  | |  | ||");
+		System.out.println("   |  ["+machine.liste(new Random().nextInt(5))+"]  ["+machine.liste(new Random().nextInt(5))+"]  ["+machine.liste(new Random().nextInt(5))+"]  | ||");
+		System.out.println("   |                 |_||");
+		System.out.println("   |   §§§  x1       |--'");
+		System.out.println("   |   ???  x2       |");
+		System.out.println("   |   $$$  x5       |");
+		System.out.println("   |   ***  x10      |");
+		System.out.println("   |   777  Jackpot  |");
+		System.out.println("   |                 |");
+		System.out.println("   |        __  ===  |");
+		System.out.println("   |_______/__\\______|");
+		System.out.println("   /#################\\");
+		System.out.println("  /###################\\");
+		System.out.println(" |#####################|");
 		
 	}
 	
