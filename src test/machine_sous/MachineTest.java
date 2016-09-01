@@ -1,4 +1,4 @@
-package roulette;
+package machine_sous;
 import org.junit.Assert;
 import org.junit.Test;
 

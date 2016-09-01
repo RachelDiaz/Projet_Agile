@@ -1,5 +1,5 @@
 package roulette;
 
-public class coucou {
+public class oui {
 
 }

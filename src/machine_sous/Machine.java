@@ -1,4 +1,4 @@
-package roulette;
+package machine_sous;
 
 public class Machine {
 	private int mise;
