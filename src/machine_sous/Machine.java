@@ -11,7 +11,7 @@ public class Machine {
 	private Character Character1;
 	private Character Character2;
 	private Character Character3;
-	private Character[] liste= new Character[] {'7','*','$','?','§'};
+	private Character[] liste= new Character[] {'7','*','$','?'};
 	private int gain;
 	private int jackpot = 1000;
 	
@@ -88,9 +88,8 @@ public class Machine {
 	public int Alea(){
 		Random alea = new Random();
 		int nombre = alea.nextInt(100);
-		if (nombre < 60)  return 4;
-		else if (nombre < 90)  return 3;
-		else if (nombre < 95)  return 2;
+		if (nombre < 60)  return 3;
+		else if (nombre < 90)  return 2;
 		else if (nombre < 99)  return 1;
 		else return 0;
 	}
@@ -115,10 +114,7 @@ public class Machine {
 	
 	public void gagner(){
 		if (this.combinaisonGagnante()) {
-			if (this.getCharacter1().equals(this.liste(4))){
-				this.joueur.Gain(mise);
-				System.out.println("Vous avez regagné votre mise.");
-			}else if (this.getCharacter1().equals(this.liste(3))){
+			if (this.getCharacter1().equals(this.liste(3))){
 				this.gain+=mise*2;
 				System.out.println("Vous avez doublé votre mise.");
 			}else if (this.getCharacter1().equals(this.liste(2))){ 
@@ -150,8 +146,7 @@ public class Machine {
 		System.out.println("   |  | |  | |  | |  | ||");
 		System.out.println("   |  ["+machine.liste(new Random().nextInt(5))+"]  ["+machine.liste(new Random().nextInt(5))+"]  ["+machine.liste(new Random().nextInt(5))+"]  | ||");
 		System.out.println("   |                 |_||");
-		System.out.println("   |   §§§  x1       |--'");
-		System.out.println("   |   ???  x2       |");
+		System.out.println("   |   ???  x2       |--'");
 		System.out.println("   |   $$$  x5       |");
 		System.out.println("   |   ***  x10      |");
 		System.out.println("   |   777  Jackpot  |");
@@ -186,3 +181,4 @@ public class Machine {
 		j.Gain(gainMachine);
 	}
 }
+
