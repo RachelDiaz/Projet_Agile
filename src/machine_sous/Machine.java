@@ -140,11 +140,11 @@ public class Machine {
 		System.out.println("        .-------.");
 		System.out.println("     oO{-JACKPOT-}Oo");
 		System.out.println("   .=================. __");
-		System.out.println("   |  ["+machine.liste(new Random().nextInt(5))+"]  ["+machine.liste(new Random().nextInt(5))+"]  ["+machine.liste(new Random().nextInt(5))+"]  |(  )");
+		System.out.println("   |  ["+machine.liste(new Random().nextInt(4))+"]  ["+machine.liste(new Random().nextInt(4))+"]  ["+machine.liste(new Random().nextInt(4))+"]  |(  )");
 		System.out.println("   |  | |  | |  | |  | ||");
 		System.out.println("   |  ["+machine.getCharacter1()+"]  ["+machine.getCharacter2()+"]  ["+machine.getCharacter3()+"]  | ||");
 		System.out.println("   |  | |  | |  | |  | ||");
-		System.out.println("   |  ["+machine.liste(new Random().nextInt(5))+"]  ["+machine.liste(new Random().nextInt(5))+"]  ["+machine.liste(new Random().nextInt(5))+"]  | ||");
+		System.out.println("   |  ["+machine.liste(new Random().nextInt(4))+"]  ["+machine.liste(new Random().nextInt(4))+"]  ["+machine.liste(new Random().nextInt(4))+"]  | ||");
 		System.out.println("   |                 |_||");
 		System.out.println("   |   ???  x2       |--'");
 		System.out.println("   |   $$$  x5       |");
