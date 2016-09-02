@@ -22,6 +22,7 @@ public class Menu {
 	
 	public String nomdujeu(int nb) throws IOException {
 		if(nb == 1) {
+			System.out.println("En cours de réparation. DSL !");
 			return "BLACKJACK";
 		} 
 		if (nb == 2) {

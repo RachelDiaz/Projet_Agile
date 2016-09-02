@@ -22,7 +22,7 @@ public class SaveTest {
 	@Test
 	public void testLogAcJoueurConnu() throws IOException{
 		savance=new Save();
-		test=new Joueur("Sabrina","12345");
+		test=new Joueur("Sabrina","LASORCIERE");
 		assertTrue(savance.login(test));
 		
 
@@ -47,11 +47,13 @@ public class SaveTest {
 	@Test
 	public void testRegAcJoueurConnu() throws IOException{
 		savance=new Save();
-		test=new Joueur("Dédé","14");
+		test=new Joueur("Dédé","LEDE");
 		assertTrue(savance.login(test));
 		assertFalse(savance.register(test));
 		
 	}
+	
+	
 	
 	
 }
