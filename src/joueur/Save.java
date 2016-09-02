@@ -111,8 +111,10 @@ public class Save {
 			}else if(numerojeu==2){
 				registration();
 				b=true;
-			}else{
+			}else if(numerojeu==666){
 				System.out.println("Wesh t'es con tu sais pas choisir entre 1 et 2 boloss !");
+			}else{
+				System.out.println("Choix impossible !");
 			}
 		}
 		return player;
