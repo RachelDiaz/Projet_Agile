@@ -34,7 +34,7 @@ public class Machine {
 	}
 	
 	public void Miser(int mise){
-			if (mise < 0) this.mise = 1;
+			if (mise < 1) this.mise = 1;
 			else if (mise > 10) this.mise=10;
 			else this.mise=mise;
 		
@@ -116,7 +116,7 @@ public class Machine {
 	public void gagner(){
 		if (this.combinaisonGagnante()) {
 			if (this.getCharacter1().equals(this.liste(4))){
-				this.gain+=mise*1;
+				this.joueur.Gain(mise);
 				System.out.println("Vous avez regagné votre mise.");
 			}else if (this.getCharacter1().equals(this.liste(3))){
 				this.gain+=mise*2;
@@ -185,10 +185,4 @@ public class Machine {
 		int gainMachine = p.partie(j);
 		j.Gain(gainMachine);
 	}
-	
-	
-	
-	
-	
-	
 }
