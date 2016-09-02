@@ -178,6 +178,17 @@ public class Machine {
 	public Joueur getJoueur(){
 		return this.joueur;
 	}
-		
+	
+	public static void main(String[]args){
+		Joueur j = new Joueur();
+		PartieMachine p=new PartieMachine();
+		int gainMachine = p.partie(j);
+		j.Gain(gainMachine);
+	}
+	
+	
+	
+	
+	
 	
 }

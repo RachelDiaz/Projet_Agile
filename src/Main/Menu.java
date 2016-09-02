@@ -30,12 +30,12 @@ public class Menu {
 		} 
 		if (nb == 3) {
 			PartieMachine p=new PartieMachine();
-			joueur = p.partie(joueur);
+			joueur.setMoney(p.partie(joueur));
 			return "MACHINE A SOUS";
 		}
 		if(nb == 4){
 			Save save=new Save();
-			save.getJoueur();
+			joueur = save.getJoueur();
 			return "IDENTIFICATION/INSCRIPTION";
 		}
 		return null;
@@ -50,6 +50,9 @@ public class Menu {
 		int numerojeu;
 		Scanner scan = new Scanner(System.in);
 		
+		System.out.println("BIENVENUE AU CASINO ! ");
+		nomdujeu(4);
+		
 		while(!b) {
 			System.out.println("");
 			System.out.println("BIENVENUE AU CASINO ! "
@@ -59,18 +62,14 @@ public class Menu {
 					+ "1 Blackjack" + "\n"
 					+ "2 Roulette" + "\n"
 					+ "3 Machine à sous" + "\n"
-					+ "4 Identification/Inscription"+"\n"
-					+ "5 Quitter" + "\n"
+					+ "4 Quitter" + "\n"
 					+ "\n"
 					+ "Donnez le numéro du jeu concerné :"
 					);
 			numerojeu = scan.nextInt();
 			if(numerojeu ==1 || numerojeu ==2 || numerojeu ==3){
 				nomdujeu(numerojeu);
-			}else if(numerojeu==4) {
-				nomdujeu(numerojeu);
-				break;
-			} else if (numerojeu==5){
+			} else if (numerojeu==4){
 				System.out.println("Merci d'avoir joué dans notre casino, à bientôt !");
 				b = true;
 				break;

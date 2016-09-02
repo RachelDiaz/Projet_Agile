@@ -8,7 +8,7 @@ public class PartieMachine {
 	public PartieMachine(){
 	}
 	
-	public Joueur partie(Joueur j){
+	public int partie(Joueur j){
 		Machine machine=new Machine(j);
 		boolean continuer=true;
 		boolean b=false;
@@ -26,7 +26,7 @@ public class PartieMachine {
 			Scanner scan = new Scanner(System.in);
 			int mise = scan.nextInt();
 			while(!b) {
-				if(mise <11 && mise > 0 && machine.peutMiser(mise)){
+				if(mise <11 && mise >= 1 && machine.peutMiser(mise)){
 					b = true;
 					break;
 				} else {
@@ -54,7 +54,7 @@ public class PartieMachine {
 			while(!b) {
 				if(choix ==1){
 					System.out.println("Vos gains ont été encaissés. A bientot.");
-					j.Gain(machine.getGain());
+					machine.getJoueur().Gain(machine.getGain());
 					b = true;
 					continuer=false;
 					break;
@@ -73,7 +73,7 @@ public class PartieMachine {
 				}
 			}
 		}
-		return machine.getJoueur();
+		return machine.getJoueur().getMoney();
 	}
 	
 	
