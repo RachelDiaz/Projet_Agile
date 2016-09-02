@@ -1,6 +1,7 @@
 package Roulette;
 
 import Main.*;
+import joueur.Joueur;
 
 import java.util.GregorianCalendar;
 import java.util.Scanner;
@@ -22,18 +23,19 @@ public class ChoixMise {
 	static boolean ndcolonne = false;
 	static boolean rdcolonne = false;
 	static int choixJoueur = 0;
+	private static Joueur joueur;
 
-	public ChoixMise() {
+	public ChoixMise(Joueur joueur) {
+		this.joueur=joueur;
 		/*
 		 * int i = saisiMise(); int j = saisiPlace(); if (i == 0) { if (j == 0)
 		 * { new Aleatoire(); } } i = 0; j = 0;
 		 */
-		System.out.println(Main.jacky.getMoney());
 		int i = saisiMise();
 		int j = saisiPlace();
-		if (Main.jacky.getMoney() > 0) {
+		if (joueur.getMoney() > 0) {
 			if (i == 0 && j == 0) {
-				new Aleatoire();
+				new Aleatoire(joueur);
 			} else if (i == 1 && j == 1) {
 				System.out.println("Plus de jetons");
 			}
@@ -55,91 +57,91 @@ public class ChoixMise {
 		switch (scan.nextLine()) {
 		case "1":
 			mise = 1;
-			if (mise == Main.jacky.getMoney()) {
+			if (mise == joueur.getMoney()) {
 				System.out.println("coucou");
-				Main.jacky.Perte(1);
+				joueur.Perte(1);
 				return 0;
 			}
 
-			else if (mise > Main.jacky.getMoney()) {
-				System.out.println("Il vous reste " + Main.jacky.getMoney() + " jetons");
+			else if (mise > joueur.getMoney()) {
+				System.out.println("Il vous reste " + joueur.getMoney() + " jetons");
 				System.out.println("Vous n'avez pas assez de jetons, vous ne pouvez plus jouer");
 				return 1;
 			}
-			Main.jacky.Perte(1);
+			joueur.Perte(1);
 			break;
 
 		case "2":
 			mise = 5;
-			if (mise == Main.jacky.getMoney()) {
+			if (mise == joueur.getMoney()) {
 				System.out.println("coucou");
-				Main.jacky.Perte(5);
+				joueur.Perte(5);
 				return 0;
 			}
 
-			else if (mise > Main.jacky.getMoney()) {
-				System.out.println("Il vous reste " + Main.jacky.getMoney() + " jetons");
+			else if (mise > joueur.getMoney()) {
+				System.out.println("Il vous reste " + joueur.getMoney() + " jetons");
 				System.out.println("Vous n'avez pas assez de jetons, vous ne pouvez plus jouer");
 				return 1;
 			}
-			Main.jacky.Perte(5);
+			joueur.Perte(5);
 			break;
 
 		case "3":
 			mise = 10;
-			if (mise == Main.jacky.getMoney()) {
+			if (mise == joueur.getMoney()) {
 				System.out.println("coucou");
-				Main.jacky.Perte(10);
+				joueur.Perte(10);
 				return 0;
 			}
 
-			else if (mise > Main.jacky.getMoney()) {
-				System.out.println("Il vous reste " + Main.jacky.getMoney() + " jetons");
+			else if (mise > joueur.getMoney()) {
+				System.out.println("Il vous reste " + joueur.getMoney() + " jetons");
 				System.out.println("Vous n'avez pas assez de jetons, vous ne pouvez plus jouer");
 				return 1;
 			}
-			Main.jacky.Perte(10);
+			joueur.Perte(10);
 			break;
 
 		case "4":
 			mise = 25;
-			if (mise == Main.jacky.getMoney()) {
+			if (mise == joueur.getMoney()) {
 				System.out.println("coucou");
-				Main.jacky.Perte(25);
+				joueur.Perte(25);
 				return 0;
 			}
 
-			else if (mise > Main.jacky.getMoney()) {
-				System.out.println("Il vous reste " + Main.jacky.getMoney() + " jetons");
+			else if (mise > joueur.getMoney()) {
+				System.out.println("Il vous reste " + joueur.getMoney() + " jetons");
 				System.out.println("Vous n'avez pas assez de jetons, vous ne pouvez plus jouer");
 				return 1;
 			}
-			Main.jacky.Perte(25);
+			joueur.Perte(25);
 			break;
 
 		case "5":
 			mise = 50;
-			if (mise == Main.jacky.getMoney()) {
+			if (mise == joueur.getMoney()) {
 				System.out.println("coucou");
-				Main.jacky.Perte(50);
+				joueur.Perte(50);
 				return 0;
 			}
 
-			else if (mise > Main.jacky.getMoney()) {
-				System.out.println("Il vous reste " + Main.jacky.getMoney() + " jetons");
+			else if (mise > joueur.getMoney()) {
+				System.out.println("Il vous reste " + joueur.getMoney() + " jetons");
 				System.out.println("Vous n'avez pas assez de jetons, vous ne pouvez plus jouer");
 				return 1;
 			}
-			Main.jacky.Perte(50);
+			joueur.Perte(50);
 			break;
 
 		}
 		/*
-		 * if (mise == Main.jacky.getMoney()) { System.out.println("coucou");
+		 * if (mise == joueur.getMoney()) { System.out.println("coucou");
 		 * return 0; }
 		 * 
-		 * else if (mise > Main.jacky.getMoney()) { System.out.println(
-		 * "Il vous reste " + Main.jacky.getMoney() + " jetons");
+		 * else if (mise > joueur.getMoney()) { System.out.println(
+		 * "Il vous reste " + joueur.getMoney() + " jetons");
 		 * System.out.println(
 		 * "Vous n'avez pas assez de jetons, vous ne pouvez plus jouer"); return
 		 * 1; }
@@ -216,7 +218,7 @@ public class ChoixMise {
 			}
 		}
 
-		if (Main.jacky.getMoney() == 0) {
+		if (joueur.getMoney() == 0) {
 			return 1;
 		}
 
@@ -224,7 +226,7 @@ public class ChoixMise {
 
 		switch (scan.nextLine()) {
 		case "1":
-			Main.jacky.Perte(mise);
+			joueur.Perte(mise);
 			saisiPlace();
 
 			break;

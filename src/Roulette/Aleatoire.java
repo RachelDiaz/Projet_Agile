@@ -2,12 +2,8 @@ package Roulette;
 
 import java.util.Random;
 
-import javax.print.attribute.standard.Chromaticity;
-
-import org.omg.CORBA.portable.ValueOutputStream;
-import org.w3c.dom.traversal.NodeIterator;
-
 import Main.Main;
+import joueur.Joueur;
 
 public class Aleatoire {
 	int[] tab_rouge = new int[] { 1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36 };
@@ -35,9 +31,10 @@ public class Aleatoire {
 	boolean thirdD;
 	Random r = new Random();
 	int nbr = r.nextInt(36);
-	
+	Joueur joueur;
 
-	public Aleatoire() {
+	public Aleatoire(Joueur joueur) {
+		this.joueur=joueur;
 		lancer();
 		check_with_mise();
 	}
@@ -112,12 +109,12 @@ public class Aleatoire {
 
 		System.out.println("Rien ne va plus !\nLes jeux sont faits ! \nLe numero tiré est " + nbr);
 		if (good) {
-			Main.jacky.Gain(ChoixMise.mise * multiplicateur);
+			joueur.Gain(ChoixMise.mise * multiplicateur);
 			System.out.println("Vous avez gagné bravo !");
 		}
 		if (!good)
 			System.out.println("Vous avez perdu !");
-		System.out.println("Vous possedez " + Main.jacky.getMoney() + " jetons");
+		System.out.println("Vous possedez " + joueur.getMoney() + " jetons");
 	}
 
 	boolean isRouge(int nbrs) {

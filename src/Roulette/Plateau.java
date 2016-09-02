@@ -4,28 +4,30 @@ import java.awt.Menu;
 import java.util.Scanner;
 
 import Main.Main;
+import joueur.Joueur;
 
 public class Plateau {
 	private int LARG = 3;
 	private int LONG = 12;
-
-	public Plateau() {
+	private Joueur joueur;
+	public Plateau(Joueur joueur) {
+		this.joueur=joueur;
 		boolean boo = false;
 		Affichage();
-		new ChoixMise();
+		new ChoixMise(joueur);
 		while (!boo) {
-			if(Main.jacky.getMoney() > 0){
+			if(joueur.getMoney() > 0){
 				System.out.println("1: Rejouer");
 				System.out.println("2: Voir mon compte");
 				System.out.println("3: Quitter");
 				Scanner scanner = new Scanner(System.in);
 
 				switch (scanner.nextLine()) {
-				case "1": new ChoixMise();
+				case "1": new ChoixMise(joueur);
 				break;
 				case "2":
-					System.out.println("Votre compte est de: " + Main.jacky.getMoney());
-					new ChoixMise();
+					System.out.println("Votre compte est de: " + joueur.getMoney());
+					new ChoixMise(joueur);
 					break;
 				case "3":
 					new Menu();
@@ -88,5 +90,8 @@ public class Plateau {
 		System.out.println("Rouge: 1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36");
 		System.out.println("Noir: 2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35");
 	}
-
+	
+	public Joueur getJoueur(){
+		return joueur;
+	}
 }

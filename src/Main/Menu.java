@@ -25,7 +25,7 @@ public class Menu {
 			return "BLACKJACK";
 		} 
 		if (nb == 2) {
-			new Plateau();
+			new Plateau(joueur);
 			return "ROULETTE";
 		} 
 		if (nb == 3) {
