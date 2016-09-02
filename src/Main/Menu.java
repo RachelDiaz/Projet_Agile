@@ -5,6 +5,7 @@ import java.util.Scanner;
 import Roulette.Plateau;
 import joueur.Joueur;
 import joueur.Save;
+import machine_sous.PartieMachine;
 
 /**
  * Classe de gestion du jeu
@@ -28,6 +29,8 @@ public class Menu {
 			return "ROULETTE";
 		} 
 		if (nb == 3) {
+			PartieMachine p=new PartieMachine();
+			joueur = p.partie(joueur);
 			return "MACHINE A SOUS";
 		}
 		if(nb == 4){
@@ -44,6 +47,9 @@ public class Menu {
 
 	public Menu() throws IOException {
 		Boolean b = false;
+		int numerojeu;
+		Scanner scan = new Scanner(System.in);
+		
 		System.out.println("BIENVENUE AU CASINO ! "
 				+ "\n"
 				+ "Veuillez choisir votre jeu ..." + "\n"
@@ -51,63 +57,42 @@ public class Menu {
 				+ "1 BLACKJACK" + "\n"
 				+ "2 ROULETTE" + "\n"
 				+ "3 MACHINE A SOUS" + "\n"
-				+ "4 IDENTIFICATION/INSCRIPTION"+"\n"
+				+ "4 Identification/Inscription"+"\n"
 				+ "\n"
 				+ "Donnez le numéro du jeu concernée :"
 				);
-		//try {
-		Scanner scan = new Scanner(System.in);
-		int numerojeu = scan.nextInt();
-		//} catch (NumberFormatException nf) {
-		/*while(!b) {
-				if(numerojeu ==1 || numerojeu ==2 || numerojeu ==3){
-					System.out.println("\n"+"Vous avez choisis le jeu numéro : " + numerojeu + "\n" +
-						"Votre jeu de " + nomdujeu(numerojeu) + " va commencer ...");
-					b = true;
-					break;
-				} else {
-					System.out.println("ERREUR " 
-						+ "\n" + "Le jeu saisis n'est pas bon, merci de ressayer ..." 
-						+ "\n" + "Donnez le numero du jeu concernée :");
-					numerojeu = scan.nextInt();
-				}
-			}
-		}*/
-
-
 
 		while(!b) {
-			if(numerojeu ==1 || numerojeu ==2 || numerojeu ==3 ){
-				System.out.println("\n"+"Vous avez choisis le jeu numéro : " + numerojeu + "\n" +
-						"Votre jeu de " + nomdujeu(numerojeu) + " va commencer ...");
-				b = true;
-				break;
-			} else if(numerojeu==4) {
+			System.out.println("");
+			System.out.println("BIENVENUE AU CASINO ! "
+					+ "\n"
+					+ "Veuillez choisir votre jeu ..." + "\n"
+					+ "\n"
+					+ "1 Blackjack" + "\n"
+					+ "2 Roulette" + "\n"
+					+ "3 Machine à sous" + "\n"
+					+ "4 Identification/Inscription"+"\n"
+					+ "5 Quitter" + "\n"
+					+ "\n"
+					+ "Donnez le numéro du jeu concerné :"
+					);
+			numerojeu = scan.nextInt();
+			if(numerojeu ==1 || numerojeu ==2 || numerojeu ==3){
+				nomdujeu(numerojeu);
+			}else if(numerojeu==4) {
 				nomdujeu(numerojeu);
 				break;
-				
-			}else{
+			} else if (numerojeu==5){
+				System.out.println("Merci d'avoir joué dans notre casino, à bientôt !");
+				b = true;
+				break;
+			} else {
 				System.out.println("ERREUR " 
-						+ "\n" + "Le jeu saisis n'est pas bon, merci de ressayer ..." 
-						+ "\n" + "Donnez le numero du jeu concernée :");
-				numerojeu = scan.nextInt();
+						+ "\n" + "Ce choix n'est pas dans la liste." 
+						+ "\n" + "Merci de choisir parmis les différents choix de la liste.");
 			}
 		}
-
-	}
-
-	/*		while(!b) {
-				if(scan.equals("1") || scan.equals("2") || scan.equals("3")){
-					System.out.println("\n"+"Vous avez choisis le jeu numéro : " + scan + "\n" +
-						"Votre jeu de " + (scan) + " va commencer ...");
-					b = true;
-					break;
-				} else {
-					System.out.println("ERREUR " 
-						+ "\n" + "Le jeu saisis n'est pas bon, merci de ressayer ..." 
-						+ "\n" + "Donnez le numero du jeu concernée :");
-				}
-			}*/
-
+			
+	} 
 
 }

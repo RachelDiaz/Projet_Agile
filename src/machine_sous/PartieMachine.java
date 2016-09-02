@@ -8,7 +8,7 @@ public class PartieMachine {
 	public PartieMachine(){
 	}
 	
-	public int partie(Joueur j){
+	public Joueur partie(Joueur j){
 		Machine machine=new Machine(j);
 		boolean continuer=true;
 		boolean b=false;
@@ -54,6 +54,7 @@ public class PartieMachine {
 			while(!b) {
 				if(choix ==1){
 					System.out.println("Vos gains ont été encaissés. A bientot.");
+					j.Gain(machine.getGain());
 					b = true;
 					continuer=false;
 					break;
@@ -72,7 +73,7 @@ public class PartieMachine {
 				}
 			}
 		}
-		return machine.getGain();
+		return machine.getJoueur();
 	}
 	
 	
