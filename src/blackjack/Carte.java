@@ -23,8 +23,8 @@ public class Carte {
 			   "*********";
 	}
 	
-	public String afficheCarte() {
-		return "** "+ COULEURCARTE[this.couleur] +" ** "+ VALEURCARTE[this.valeur] + " **";
+	public void afficheCarte() {
+		System.out.println( "** "+ COULEURCARTE[this.couleur] +" ** "+ VALEURCARTE[this.valeur] + " **");
 	}
 	
 	public void afficheCarteBanque() {
@@ -38,6 +38,10 @@ public class Carte {
 	public boolean equals (Carte autre) {	
 		if (this.couleur == autre.couleur && this.valeur == autre.valeur) return true;
 		return false;
+	}
+	
+	public Carte copie (Carte autre) {
+		return new Carte (autre.couleur, autre.valeur);
 	}
 	
 	public int getValeur() {

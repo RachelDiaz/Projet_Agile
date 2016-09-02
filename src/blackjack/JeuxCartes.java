@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.Random;
 
 public class JeuxCartes {
-	ArrayList <Carte> myJeux;
+	private ArrayList <Carte> myJeux;
 	
 	public JeuxCartes() {
 		myJeux = new ArrayList<>();
@@ -25,10 +25,16 @@ public class JeuxCartes {
 	}
 	
 	public Carte donner () {
-		if (!myJeux.isEmpty()) return myJeux.remove(0);
-		else return null;
+		if (!myJeux.isEmpty()) {
+			return myJeux.remove(0);
+		}else return null;
 	}
 	
+	private boolean isEmpty() {
+		// TODO Auto-generated method stub
+		return myJeux.isEmpty();
+	}
+
 	public void melanger () {
 		Collections.shuffle(myJeux);		
 	}

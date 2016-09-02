@@ -27,8 +27,7 @@ public class distribution {
 		
 		System.out.println("CARTE BANQUE :");
 		System.out.println(tapis_banque.size());
-		c = jeu.donner() ;
-		c.afficheCarteBanque();
+		tapis_banque.get(0).afficheCarteBanque();
 		tapis_banque.get(1).afficheCarteBanque();
 		
 		System.out.println("\n" + "CARTE JOUEUR :");
