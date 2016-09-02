@@ -46,7 +46,7 @@ public class PartieMachine {
 			machine.Affichage(machine);
 			System.out.println("");
 			machine.gagner();
-			System.out.println("Votre gain est de "+machine.getGain()+".");
+			System.out.println("Votre gain est de "+machine.getGain()+". Votre solde est de "+machine.getJoueur().getMoney()+".");
 			
 			System.out.println("Que choisissez-vous : 1: Encaisser vos gains  2: continuer");
 			int choix = scan.nextInt();
