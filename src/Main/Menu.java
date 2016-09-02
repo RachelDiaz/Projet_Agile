@@ -71,6 +71,8 @@ public class Menu {
 				nomdujeu(numerojeu);
 			} else if (numerojeu==4){
 				System.out.println("Merci d'avoir joué dans notre casino, à bientôt !");
+				Save save=new Save();
+				save.maj(joueur);
 				b = true;
 				break;
 			} else {

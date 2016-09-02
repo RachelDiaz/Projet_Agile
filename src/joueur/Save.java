@@ -147,4 +147,14 @@ public class Save {
 				
 	}
 	
+	public void maj(Joueur joueur) throws IOException {
+		// TODO Auto-generated method stub
+		for(Joueur j : list){
+			if(joueur.getName().equals(j.getName()) && joueur.getCode().equals(j.getCode())){
+				j.setMoney(joueur.getMoney());
+			}
+		}
+		sauve();
+	}
+	
 }
