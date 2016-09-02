@@ -50,18 +50,6 @@ public class Menu {
 		int numerojeu;
 		Scanner scan = new Scanner(System.in);
 		
-		System.out.println("BIENVENUE AU CASINO ! "
-				+ "\n"
-				+ "Veuillez choisir votre jeu ..." + "\n"
-				+ "\n"
-				+ "1 BLACKJACK" + "\n"
-				+ "2 ROULETTE" + "\n"
-				+ "3 MACHINE A SOUS" + "\n"
-				+ "4 Identification/Inscription"+"\n"
-				+ "\n"
-				+ "Donnez le numéro du jeu concernée :"
-				);
-
 		while(!b) {
 			System.out.println("");
 			System.out.println("BIENVENUE AU CASINO ! "
