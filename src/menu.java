@@ -1,5 +1,8 @@
 import java.util.Scanner;
 
+import blackjack.BlackJack;
+import joueur.Joueur;
+
 /**
  * Classe de gestion du jeu
  * @author Team Casino
@@ -43,29 +46,12 @@ public class menu {
 		Scanner scan = new Scanner(System.in);
 		int numerojeu = scan.nextInt();
 		//} catch (NumberFormatException nf) {
-		/*while(!b) {
-				if(numerojeu ==1 || numerojeu ==2 || numerojeu ==3){
-					System.out.println("\n"+"Vous avez choisis le jeu numéro : " + numerojeu + "\n" +
-						"Votre jeu de " + nomdujeu(numerojeu) + " va commencer ...");
-					b = true;
-					break;
-				} else {
-					System.out.println("ERREUR " 
-						+ "\n" + "Le jeu saisis n'est pas bon, merci de ressayer ..." 
-						+ "\n" + "Donnez le numero du jeu concernée :");
-					numerojeu = scan.nextInt();
-				}
-			}
-		}*/
-
-
-
+		
 		while(!b) {
 			if(numerojeu ==1 || numerojeu ==2 || numerojeu ==3){
 				System.out.println("\n"+"Vous avez choisis le jeu numéro : " + numerojeu + "\n" +
 						"Votre jeu de " + nomdujeu(numerojeu) + " va commencer ...");
 				b = true;
-				break;
 			} else {
 				System.out.println("ERREUR " 
 						+ "\n" + "Le jeu saisis n'est pas bon, merci de ressayer ..." 
@@ -73,22 +59,16 @@ public class menu {
 				numerojeu = scan.nextInt();
 			}
 		}
+		/*if(numerojeu == 1) {
+			Joueur j = new Joueur();
+			BlackJack bj = new BlackJack(j);
+			bj.lancerPartie();*/
+			
+			
+		}
 
-	}
+	
 
-	/*		while(!b) {
-				if(scan.equals("1") || scan.equals("2") || scan.equals("3")){
-					System.out.println("\n"+"Vous avez choisis le jeu numéro : " + scan + "\n" +
-						"Votre jeu de " + (scan) + " va commencer ...");
-					b = true;
-					break;
-				} else {
-					System.out.println("ERREUR " 
-						+ "\n" + "Le jeu saisis n'est pas bon, merci de ressayer ..." 
-						+ "\n" + "Donnez le numero du jeu concernée :");
-
-				}
-			}*/
 
 	public static void main(String[] args) {
 		new menu();
