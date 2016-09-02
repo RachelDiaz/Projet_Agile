@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 import com.google.gson.GsonBuilder;
 
@@ -22,14 +23,49 @@ public class Save {
 	private BufferedReader buffr;
 	private List<Joueur> list;
 		
-	public Save() throws IOException{			
+	public Save() throws IOException{
+		
 		buffr=new BufferedReader(reader);
 		String line=buffr.readLine();
 		Joueur[] joueurs = new GsonBuilder().create().fromJson(line, Joueur[].class);
 		list = new ArrayList<Joueur>(Arrays.asList(joueurs));
 		buffr.close();
+		
+		
+		
 	}
 	
+	private void identification() {
+		// TODO Auto-generated method stub
+		Scanner scan = new Scanner(System.in);
+		String name;
+		String code;
+		do{
+			System.out.println("Identification :"+"\n");
+			System.out.println("Veuillez entrer votre pseudo : ");
+			name= scan.nextLine();
+			System.out.println("Maintenant votre mot-de-passe : ");
+			code= scan.nextLine();
+		}while(!login(new Joueur(name,code)));
+		System.out.println("Bienvenue "+player.getName()+"\n"+"Bon Jeu !");
+	}
+
+	private void registration() throws IOException {
+		// TODO Auto-generated method stub
+		Scanner scan = new Scanner(System.in);
+		String name;
+		String code;
+		do{
+			System.out.println("Enregistrement :"+"\n");
+			System.out.println("Veuillez entrer votre pseudo : ");
+			name= scan.nextLine();
+			System.out.println("Maintenant votre mot-de-passe : ");
+			code= scan.nextLine();
+		}while(!register(new Joueur(name,code)));
+		System.out.println("Enregistrement réussi !");
+		System.out.println("Bienvenue "+player.getName()+"\n"+"Bon Jeu !");
+	}
+
 	private void sauve() throws IOException {
 		String rep="[";
 		for(Joueur j:list){
@@ -56,7 +92,25 @@ public class Save {
 		});
 	}
 	
-	public Joueur getJoueur(){
+	public Joueur getJoueur() throws IOException{
+		boolean b=false;
+		System.out.println("Choisir :"+"\n"
+				+ "1/Identification"+"\n"
+				+ "2/Enregistrement"+"\n"
+				+ "Votre Choix :");
+		Scanner scan = new Scanner(System.in);
+		int numerojeu = scan.nextInt();
+		while(!b){
+			if(numerojeu==1){
+				identification();
+				b=true;
+			}else if(numerojeu==2){
+				registration();
+				b=true;
+			}else{
+				System.out.println("Wesh t'es con tu sais pas choisir entre 1 et 2 boloss !");
+			}
+		}
 		return player;
 	}
 	
@@ -67,7 +121,7 @@ public class Save {
 					return false;
 				}
 			}
-		
+		player=reg;
 		list.add(reg);
 		sauve();
 		return true;
@@ -76,8 +130,8 @@ public class Save {
 	public boolean login(Joueur log){
 		for(Joueur j : list){
 			if(log.getName().equals(j.getName()) && log.getCode().equals(j.getCode())){
-				//log.setMoney(j.getMoney());
-				System.out.println("OK");
+				log.setMoney(j.getMoney());
+				player=log;
 				return true;
 			}
 		}
