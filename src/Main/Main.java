@@ -1,8 +1,9 @@
 package Main;
-import Joueur.Joueur;
+
+import joueur.Joueur;
 
 public class Main {
-	public static Joueur jacky = new Joueur("Jacky");
+	public static Joueur jacky = new Joueur();
 	public static Menu menu;
 	
 	public static void main(String[] args) {

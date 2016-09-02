@@ -16,22 +16,42 @@ import com.google.gson.GsonBuilder;
 
 public class SaveTest {
 	Joueur test;
-	File fichier=new File("Ressources/ID.json");
-	FileReader reader;
-	BufferedReader buffr;
+	Save savance;
 	
 	
 	@Test
-	public void testJoueurConnu() throws IOException{
-		reader= new FileReader(fichier);
+	public void testLogAcJoueurConnu() throws IOException{
+		savance=new Save();
 		test=new Joueur("Sabrina","12345");
-		buffr=new BufferedReader(reader);
-		String line=buffr.readLine();
-		buffr.close();
+		assertTrue(savance.login(test));
+		
 
 	}
 	
-	//@Test
+	@Test
+	public void testlogAcJoueurNonConnu() throws IOException{
+		savance=new Save();
+		test=new Joueur("Loic","12345");
+		assertFalse(savance.login(test));
+	}
+	
+	@Test
+	public void testRegAcJoueurNonConnu() throws IOException{
+		savance=new Save();
+		test=new Joueur("Jean","124578");
+		assertTrue(savance.register(test));
+		
+		
+	}
+	
+	@Test
+	public void testRegAcJoueurConnu() throws IOException{
+		savance=new Save();
+		test=new Joueur("Dédé","14");
+		assertTrue(savance.login(test));
+		assertFalse(savance.register(test));
+		
+	}
 	
 	
 }

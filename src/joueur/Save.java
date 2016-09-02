@@ -16,35 +16,21 @@ import com.google.gson.GsonBuilder;
 
 public class Save {
 	
-	Joueur player;
-	File fichier=new File("Ressources/ID.json");
-	int indicePlayer;
-	FileReader reader= new FileReader(fichier);	
-	BufferedReader buffr;
-	Joueur fantome;
+	private Joueur player;
+	private File fichier=new File("Ressources/ID.json");
+	private FileReader reader= new FileReader(fichier);	
+	private BufferedReader buffr;
+	private List<Joueur> list;
 		
-	public Save(String name, String code) throws IOException{
-		fantome=new Joueur(name,code);
-		boolean ok = false;		
+	public Save() throws IOException{			
 		buffr=new BufferedReader(reader);
 		String line=buffr.readLine();
-		System.out.println(line);
 		Joueur[] joueurs = new GsonBuilder().create().fromJson(line, Joueur[].class);
-		List<Joueur> list = new ArrayList<Joueur>(Arrays.asList(joueurs));
-		for(Joueur j : list){
-			if(j.getName()==fantome.getName() && j.getCode()==fantome.getCode()){
-				player=j;
-				ok=true;
-			}
-		}
-		if(ok!=true){
-			list.add(fantome);
-		}
-		sauve(list);
-		reader.close();
+		list = new ArrayList<Joueur>(Arrays.asList(joueurs));
+		buffr.close();
 	}
 	
-	private void sauve(List<Joueur> list) throws IOException {
+	private void sauve() throws IOException {
 		String rep="[";
 		for(Joueur j:list){
 			rep+= new GsonBuilder().create().toJson(j)+",";
@@ -62,7 +48,7 @@ public class Save {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Save frame = new Save("Jeanne","oui");
+					Save frame = new Save();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -72,6 +58,32 @@ public class Save {
 	
 	public Joueur getJoueur(){
 		return player;
+	}
+	
+	public boolean register(Joueur reg) throws IOException{
+		for(Joueur j : list){
+				if(reg.getName().equals(j.getName()) && reg.getCode().equals(j.getCode())){
+					System.out.println("ERREUR!!");
+					return false;
+				}
+			}
+		
+		list.add(reg);
+		sauve();
+		return true;
+	}
+	
+	public boolean login(Joueur log){
+		for(Joueur j : list){
+			if(log.getName().equals(j.getName()) && log.getCode().equals(j.getCode())){
+				//log.setMoney(j.getMoney());
+				System.out.println("OK");
+				return true;
+			}
+		}
+		System.out.println("ERREUR");
+		return false;
+				
 	}
 	
 }
