@@ -26,7 +26,6 @@ public class distribution {
 		
 		
 		System.out.println("CARTE BANQUE :");
-		System.out.println(tapis_banque.size());
 		tapis_banque.get(0).afficheCarteBanque();
 		tapis_banque.get(1).afficheCarteBanque();
 		

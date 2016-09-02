@@ -40,13 +40,13 @@ public class BlackJack {
 							"Tapez 2 pour non");
 		Scanner scan2 = new Scanner(System.in);
 		int res = scan2.nextInt();
+		scan2.close();
+		
 		if(res==1){
 			dt.ajout_joueur(nb_joueur);
 			nb_joueur+=1;
-			scan2.close();
 			return 1;
 		} else {
-			scan2.close();
 			return 2;
 		}
 	}

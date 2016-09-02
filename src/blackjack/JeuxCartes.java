@@ -1,12 +1,10 @@
 package blackjack;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Random;
 
 public class JeuxCartes {
-	private ArrayList <Carte> myJeux;
+	protected ArrayList <Carte> myJeux;
 	
 	public JeuxCartes() {
 		myJeux = new ArrayList<>();
@@ -27,7 +25,11 @@ public class JeuxCartes {
 	}
 	
 	public Carte donner () {
+		if(myJeux.size()>0){
 			return myJeux.remove(0);
+		} else {
+			throw(new IndexOutOfBoundsException("jeux de carte vide"));
+		}
 	}
 	
 	private boolean isEmpty() {
