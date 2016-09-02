@@ -34,8 +34,8 @@ public class JeuxCartes {
 	}
 	
 	public Carte getCard (int index) {
-		if (index < myJeux.size() && index >=0) return myJeux.get(index);
-		return null;
+		if (index < myJeux.size() && index >=0) return null;
+		return myJeux.get(index);
 	}
 	
 	public void add (Carte c){

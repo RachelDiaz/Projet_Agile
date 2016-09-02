@@ -13,6 +13,7 @@ public class BlackJack {
 	
 	public BlackJack(Joueur j) {
 		j1 = j;
+		dt = new distribution ();
 		lancerPartie();
 	}
 	
@@ -22,8 +23,7 @@ public class BlackJack {
 							"Combien voulez-vous misez cette fois-ci ?");
 		Scanner scan = new Scanner(System.in);
 		mise = scan.nextInt();
-		scan.close();
-		while(mise<=j1.getMoney()){
+		while(mise>j1.getMoney()){
 			System.out.println("Votre Mise est supérieur à votre solde !"+"\n"+
 					"Merci de bien miser en dessous de : " + j1.getMoney() + "! \n" +		   
 					"Combien voulez-vous misez cette fois-ci ?");
@@ -43,19 +43,33 @@ public class BlackJack {
 		if(res==1){
 			dt.ajout_joueur(nb_joueur);
 			nb_joueur+=1;
+			scan2.close();
 			return 1;
 		} else {
+			scan2.close();
 			return 2;
 		}
 	}
 	
-	// Somme en banque
-	int banque = j1.getMoney();
-	int pot;
+
 	
 	public void  mise(int mise) {
-		pot+= mise;
+		// Somme en banque
+		int banque = j1.getMoney();
+		int pot =0; 
+		pot += mise;
 		j1.Perte(mise);
+	}
+	
+	//-------------------------------------------------------------------
+	public static void main(String[] args){
+		Joueur myJoueur = new Joueur ();
+		BlackJack bj;
+		
+		bj = new BlackJack(myJoueur);
+		do {
+			
+		}while (bj.demandenouvelcarte() == 1);
 	}
 	
 	

@@ -27,8 +27,8 @@ public class Carte {
 		return "** "+ COULEURCARTE[this.couleur] +" ** "+ VALEURCARTE[this.valeur] + " **";
 	}
 	
-	public String afficheCarteBanque() {
-		return "** -------- ** ----- **";
+	public void afficheCarteBanque() {
+		System.out.println( "** -------- ** ----- **" + "\n") ;
 	}
 	public boolean equals (Object autre) {
 		if (autre instanceof Carte) return equals(autre);

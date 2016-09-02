@@ -4,22 +4,31 @@ import java.util.ArrayList;
 
 public class distribution {
 	
-	ArrayList <Carte> tapis_joueur= new ArrayList <> () ;
-	ArrayList <Carte> tapis_banque= new ArrayList <> () ;
-	sabot jeu = new sabot();
+	private ArrayList <Carte> tapis_joueur= new ArrayList <> () ;
+	private ArrayList <Carte> tapis_banque= new ArrayList <> () ;
+	private sabot jeu;
 	
 	public distribution()  {
-
+		//tapis_banque = new JeuxCartes ();
+		jeu = new sabot();
+		
 	}
 	
 	public void distribuer (int mise) {
-		tapis_joueur.set(0, jeu.donner());
-		tapis_banque.set(0, jeu.donner()); 
-		tapis_joueur.set(1, jeu.donner());
-		tapis_banque.set(1, jeu.donner());
+		Carte c = new Carte (0,0);
+		System.out.println("Debut Distribution :");
+		System.out.println("Distribution carte 1 :");
+		tapis_joueur.add (jeu.donner());
+		System.out.println("Distribution carte 2 :");
+		tapis_banque.add (jeu.donner()); 
+		tapis_joueur.add (jeu.donner());
+		tapis_banque.add (jeu.donner());
+		
 		
 		System.out.println("CARTE BANQUE :");
-		tapis_banque.get(0).afficheCarteBanque();
+		System.out.println(tapis_banque.size());
+		c = jeu.donner() ;
+		c.afficheCarteBanque();
 		tapis_banque.get(1).afficheCarteBanque();
 		
 		System.out.println("\n" + "CARTE JOUEUR :");
