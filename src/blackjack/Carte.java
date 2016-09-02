@@ -5,13 +5,18 @@ import java.util.Scanner;
 public class Carte {
 	static public final String [] VALEURCARTE = {"", "AS", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Valet", "Dame", "Roi"};
 	public static final String [] COULEURCARTE = {"", "COEUR", "CARREAU", "TREFLE", "PIQUE"};
-	int couleur;
-	int valeur ;
+	private int couleur;
+	private int valeur ;
 	
 	Carte (int c, int v) {
 		couleur = c;
 		valeur = v;
 	}
+	
+	public String toString () {
+		return "" + VALEURCARTE[this.valeur] + " " + COULEURCARTE [this.couleur];
+	}
+	
 	
 	public String afficheCarteAscii(int c, int v) {
 		return "*********" + "\n" + 
@@ -40,9 +45,11 @@ public class Carte {
 		return false;
 	}
 	
-	public Carte copie (Carte autre) {
-		return new Carte (autre.couleur, autre.valeur);
+	public void copie (Carte autre) {
+		this.couleur = autre.couleur;
+		this.valeur = autre.valeur;
 	}
+	
 	
 	public int getValeur() {
 		if(this.valeur >= 2 && this.valeur <=10) {

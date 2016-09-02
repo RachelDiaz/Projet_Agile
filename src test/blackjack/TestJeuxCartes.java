@@ -31,5 +31,7 @@ public class TestJeuxCartes {
 		
 		assertTrue (nb < 6);
 	}
+	
+	
 
 }

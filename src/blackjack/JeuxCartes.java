@@ -13,11 +13,13 @@ public class JeuxCartes {
 	}
 	
 	public void JeuxCartesClassique() {
+		//System.out.println("Création du jeux de carte classique");
 		for (int i = 1; i < Carte.VALEURCARTE.length; i++) {
 			for (int j = 1; j < Carte.COULEURCARTE.length; j++) {
 				myJeux.add(new Carte (j, i));
 			}
 		}
+		//System.out.println("Carte 1 : " + myJeux.get(0).toString());
 	}
 	
 	public int length () {
@@ -25,9 +27,7 @@ public class JeuxCartes {
 	}
 	
 	public Carte donner () {
-		if (!myJeux.isEmpty()) {
 			return myJeux.remove(0);
-		}else return null;
 	}
 	
 	private boolean isEmpty() {
@@ -40,7 +40,7 @@ public class JeuxCartes {
 	}
 	
 	public Carte getCard (int index) {
-		if (index < myJeux.size() && index >=0) return null;
+		//if (index < myJeux.size() && index >=0) return null;
 		return myJeux.get(index);
 	}
 	
