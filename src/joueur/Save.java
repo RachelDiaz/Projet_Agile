@@ -85,6 +85,8 @@ public class Save {
 			public void run() {
 				try {
 					Save frame = new Save();
+					
+					System.out.println(frame.getJoueur().getMoney());
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -94,13 +96,15 @@ public class Save {
 	
 	public Joueur getJoueur() throws IOException{
 		boolean b=false;
-		System.out.println("Choisir :"+"\n"
-				+ "1/Identification"+"\n"
-				+ "2/Enregistrement"+"\n"
-				+ "Votre Choix :");
+		
 		Scanner scan = new Scanner(System.in);
-		int numerojeu = scan.nextInt();
+		
 		while(!b){
+			System.out.println("Choisir :"+"\n"
+					+ "1/Identification"+"\n"
+					+ "2/Enregistrement"+"\n"
+					+ "Votre Choix :");
+			int numerojeu = scan.nextInt();
 			if(numerojeu==1){
 				identification();
 				b=true;
@@ -132,6 +136,9 @@ public class Save {
 			if(log.getName().equals(j.getName()) && log.getCode().equals(j.getCode())){
 				log.setMoney(j.getMoney());
 				player=log;
+				if(!player.resteMoney()){
+					player.setMoney(200);
+				}
 				return true;
 			}
 		}
