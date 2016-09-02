@@ -61,6 +61,21 @@ public class MachineTest {
 		Assert.assertTrue(machine.chercherListe(machine.getCharacter3()));
 	}
 	
+	@Test
+	public void peut_miser_sans_argent_test(){
+		machine=new Machine();
+		machine.getJoueur().setMoney(0);
+		Assert.assertFalse(machine.peutMiser(10));
+	}
+	
+	@Test
+	public void peut_miser_avec_argent_test(){
+		machine=new Machine();
+		Assert.assertTrue(machine.peutMiser(10));
+	}
+	
+	
+	
 	
 	
 }

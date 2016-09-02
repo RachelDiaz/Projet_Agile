@@ -89,7 +89,7 @@ public class Machine {
 		Random alea = new Random();
 		int nombre = alea.nextInt(100);
 		if (nombre < 60)  return 4;
-		else if (nombre < 80)  return 3;
+		else if (nombre < 90)  return 3;
 		else if (nombre < 95)  return 2;
 		else if (nombre < 99)  return 1;
 		else return 0;
@@ -170,69 +170,22 @@ public class Machine {
 		  }
 	}
 	
+	public boolean peutMiser(int mise){
+		if (mise <= this.joueur.getMoney()) return true;
+		else return false;
+	}
+	
+	public Joueur getJoueur(){
+		return this.joueur;
+	}
 	
 	public static void main(String[]args){
-		Machine machine=new Machine();
-		boolean continuer=true;
-		boolean b=false;
-		
-		while(continuer){
-			machine.tirage();		
-			machine.Affichage(machine);
-			System.out.println("");
-			System.out.println("Bienvenue sur la machine à sous !");
-			System.out.println("Veuillez miser entre 1 et 10 euros");
-			System.out.println("Quelle est votre mise ?");
-			Scanner scan = new Scanner(System.in);
-			int mise = scan.nextInt();
-			while(!b) {
-				if(mise <11 && mise > 0 && mise <= machine.joueur.getMoney()){
-					b = true;
-					break;
-				} else {
-					if (mise > machine.joueur.getMoney()) {
-						System.out.println("Vous n'avez pas assez d'argent.");
-					} else {
-						System.out.println("Veuillez choisir une mise entre 1 et 10 euros.");
-					}
-					mise = scan.nextInt();
-				}
-			}
-			machine.Miser(mise);			
-			machine.clearScreen();
-			machine.tirage();
-			machine.Affichage(machine);
-			System.out.println("");
-			machine.gagner();
-			System.out.println("Votre gain est de "+machine.gain+".");
-			
-			System.out.println("Que choisissez-vous : 1: Encaisser vos gains  2: continuer");
-			int choix = scan.nextInt();
-			b=false;
-			while(!b) {
-				if(choix ==1){
-					System.out.println("Vous avez choisis d'encaisser vos gains. A bientot.");
-					b = true;
-					continuer=false;
-					break;
-				} else if(choix ==2){
-					System.out.println("Vous avez choisis de continuer.");
-					b = true;
-					break;
-				} else {
-					System.out.println("Veuillez choisir dans les choix disponibles.");
-					choix = scan.nextInt();
-				}
-			}
-			
-			
-		}
-		
-		
-		
-	
-
+		Joueur j = new Joueur();
+		PartieMachine p=new PartieMachine();
+		int gainMachine = p.partie(j);
+		j.Gain(gainMachine);
 	}
+	
 	
 	
 	
